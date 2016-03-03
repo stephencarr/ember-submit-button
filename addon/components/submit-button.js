@@ -4,7 +4,8 @@ const {
   computed,
   assert,
   get,
-  isPresent
+  isPresent,
+  isEmpty
 } = Ember;
 
 export default Ember.Component.extend({
@@ -15,11 +16,15 @@ export default Ember.Component.extend({
   attributeBindings: ['isDisabled:disabled', 'type'],
 
   didReceiveAttrs() {
-    assert('You must pass a model into the submit-button component', this.get('model'));
+    this._super(...arguments);
+    
+    if (isEmpty(get(this, 'disabled'))) {
+      assert('You must pass a model into the submit-button component', this.get('model'));
+    }
   },
 
   type: 'submit',
-  pendingText: 'Saving',
+  savingText: 'Saving',
 
   text: computed('model', function(){
     const action = (this.get('model.isNew') ? 'Create' : 'Update');

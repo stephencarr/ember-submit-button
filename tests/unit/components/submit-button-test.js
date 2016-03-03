@@ -42,10 +42,19 @@ test('is disabled if model is saving', function(assert) {
   assert.equal($component.prop('disabled'), true);
 });
 
-test('can overide pending message', function(assert){
-  this.subject({model, disabled: true, pendingText: 'Submitting'});
+test('can overide pending message', function(assert) {
+  let savingText = 'Submitting';
+  this.subject({ model, savingText });
+  model.set('isSaving', true);
   this.render();
 
-  const $component = this.$();
-  assert.equal($component.text().trim(), 'Submitting...');
+  let $component = this.$();
+  assert.equal($component.text().trim(), `${savingText}...`);
+});
+
+test('can pass in a disabled state manually', function(assert) {
+  let component = this.subject({ disabled: true });
+  this.render();
+
+  assert.equal(component.get('isDisabled'), true);
 });
