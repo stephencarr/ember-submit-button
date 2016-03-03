@@ -43,7 +43,7 @@
     "ember-addon",
     "form",
     "button",
-    "submit-button",
+    "submit-button"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.5",
