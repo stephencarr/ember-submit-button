@@ -1,7 +1,7 @@
 {
   "name": "ember-submit-button",
   "version": "0.1.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember Addon containing the most delightful submit button there ever was!",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,7 +11,7 @@
     "start": "ember server",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": "https://github.com/mattmcmanus/ember-submit-button",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -40,7 +40,10 @@
     "loader.js": "^4.0.0"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "form",
+    "button",
+    "submit-button",
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.5",
