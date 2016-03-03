@@ -1,25 +1,70 @@
-# Ember-submit-button
+# ember-submit-button
 
-This README outlines the details of collaborating on this Ember addon.
+`submit-button` is a small Ember component that has a handy list of features. Pass it the `ember-data` model being edited in a form and it will:
+
+* Dynamically determine button text. (eg: if the model is an existing Post, the button text will be: **Update Post**)
+* Automatically disable the button while the model `isSaving`
+* Automatically change button text to **Saving...** while model `isSaving`
 
 ## Installation
+
+```
+ember install ember-submit-button
+```
+
+## Usage
+
+#### The simplest use case
+```hbs
+<form {{action 'save' on='submit'}}>
+  // ...
+  {{submit-button model=group}}
+  // ...
+</form>
+```
+
+#### Custom Text
+```hbs
+{{#submit-button model=post}}
+  {{if post.isDraft 'Publish' 'Update'}} Post
+{{/submit-button}}
+```
+
+#### Calling a custom action
+```hbs
+{{submit-button model=post action="publish"}}
+```
+
+#### Custom 'isSaving' text
+```hbs
+  {{submit-button model=post savingText="Submitting"}}
+```
+
+#### Not passing in a model and providing a `Boolean` value for if its disabled
+```hbs
+  {{submit-button disabled=someVariable}}
+```
+
+## Contributing
+
+### Installation
 
 * `git clone` this repository
 * `npm install`
 * `bower install`
 
-## Running
+### Running
 
 * `ember server`
 * Visit your app at http://localhost:4200.
 
-## Running Tests
+### Running Tests
 
 * `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
-## Building
+### Building
 
 * `ember build`
 
