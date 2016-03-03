@@ -1,6 +1,6 @@
 {
   "name": "ember-submit-button",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Ember Addon containing the most delightful submit button there ever was!",
   "directories": {
     "doc": "doc",
