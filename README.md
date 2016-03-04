@@ -33,7 +33,7 @@ ember install ember-submit-button
 {{/submit-button}}
 ```
 
-#### Calling a custom action
+#### Calling a custom action on click
 ```hbs
 {{submit-button model=post action="publish"}}
 ```
@@ -47,6 +47,26 @@ ember install ember-submit-button
 ```hbs
   {{submit-button disabled=someVariable}}
 ```
+
+## Component API
+
+#### `model: Ember Data Model`
+
+The model to observe. If `save()` has been triggered on the model, component will automatically disable to the button so it cannot be clicked again.
+
+#### `disable: {Boolean}`
+
+Default: `null`
+
+Passing in a `disable` value will cause the component to ignore the `model` attribute all together. The component will watch this attribute and update accordingly.
+
+#### `savingText: {String}`
+
+Default: `Saving`
+
+#### `action: {String}`
+
+A custom action to fire on click.
 
 ## Contributing
 
