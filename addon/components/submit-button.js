@@ -1,4 +1,5 @@
 import Ember from 'ember';
+const { Component } = Ember;
 import layout from '../templates/components/submit-button';
 const {
   computed,
@@ -8,7 +9,7 @@ const {
   isEmpty
 } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   tagName: 'button',
   classNames: ['btn'],
@@ -17,7 +18,7 @@ export default Ember.Component.extend({
 
   didReceiveAttrs() {
     this._super(...arguments);
-    
+
     if (isEmpty(get(this, 'disabled'))) {
       assert('You must pass a model into the submit-button component', this.get('model'));
     }
@@ -26,16 +27,16 @@ export default Ember.Component.extend({
   type: 'submit',
   savingText: 'Saving',
 
-  text: computed('model', function(){
-    const action = (this.get('model.isNew') ? 'Create' : 'Update');
-    const name = this.get('model.constructor.modelName');
+  text: computed('model', function() {
+    let action = (this.get('model.isNew') ? 'Create' : 'Update');
+    let name = this.get('model.constructor.modelName');
 
     return `${action} ${name}`;
   }),
 
-  isDisabled: computed('disabled', 'model.isSaving', function(){
-    const disabled = get(this, 'disabled');
-    const isSaving = get(this, 'model.isSaving');
+  isDisabled: computed('disabled', 'model.isSaving', function() {
+    let disabled = get(this, 'disabled');
+    let isSaving = get(this, 'model.isSaving');
 
     return (isPresent(disabled)) ? disabled : isSaving;
   }),

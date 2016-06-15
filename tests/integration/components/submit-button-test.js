@@ -1,4 +1,5 @@
 import Ember from 'ember';
+const { Object: EmberObject } = Ember;
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -6,7 +7,7 @@ moduleForComponent('submit-button', 'Integration | Component | submit button', {
   integration: true
 });
 
-const model = Ember.Object.create({
+const model = EmberObject.create({
   constructor: { modelName: 'Group' },
   isNew: true
 });
