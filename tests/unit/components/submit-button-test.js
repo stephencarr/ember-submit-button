@@ -1,4 +1,5 @@
 import Ember from 'ember';
+const { Object: EmberObject } = Ember;
 import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('submit-button', 'Unit | Component | submit button', {
@@ -6,7 +7,7 @@ moduleForComponent('submit-button', 'Unit | Component | submit button', {
   unit: true
 });
 
-const model = Ember.Object.create({
+const model = EmberObject.create({
   constructor: { modelName: 'Group' },
   isNew: true,
   isSaving: false

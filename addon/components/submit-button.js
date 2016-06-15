@@ -1,4 +1,5 @@
 import Ember from 'ember';
+const { Component } = Ember;
 import layout from '../templates/components/submit-button';
 const {
   computed,
@@ -8,7 +9,7 @@ const {
   isEmpty
 } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   tagName: 'button',
   classNames: ['btn'],
