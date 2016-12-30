@@ -26,6 +26,7 @@ export default Component.extend({
 
   type: 'submit',
   savingText: 'Saving',
+  disabledText: 'Disabled',
 
   text: computed('model', function() {
     let action = (this.get('model.isNew') ? 'Create' : 'Update');
@@ -34,11 +35,12 @@ export default Component.extend({
     return `${action} ${name}`;
   }),
 
-  isDisabled: computed('disabled', 'model.isSaving', function() {
-    let disabled = get(this, 'disabled');
-    let isSaving = get(this, 'model.isSaving');
+  isSaving: computed('model.isSaving', function() {
+    return get(this, 'model.isSaving');
+  }),
 
-    return (isPresent(disabled)) ? disabled : isSaving;
+  isDisabled: computed('disabled', function() {
+    return get(this, 'disabled');
   }),
 
   click() {

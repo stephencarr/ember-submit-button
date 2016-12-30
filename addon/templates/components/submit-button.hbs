@@ -1,4 +1,6 @@
 {{#if isDisabled}}
+  {{disabledText}}
+{{else if isSaving}}
   {{savingText}}...
 {{else}}
   {{#if hasBlock}}
